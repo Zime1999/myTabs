@@ -1,0 +1,33 @@
+{
+  "_from": "git+https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+  "_id": "com.mwaysolutions.cordova.webviewplugin@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/com.mwaysolutions.cordova.webviewplugin",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+    "rawSpec": "https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+    "saveSpec": "git+https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+    "fetchSpec": "https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/mwaylabs/cordova-plugin-inappbrowser.git#4f5d8d50a39e39f3532091f30d60a71280e2b5da",
+  "_spec": "https://github.com/mwaylabs/cordova-plugin-inappbrowser.git",
+  "_where": "/Users/simonschlecker/Documents/myTabs",
+  "bundleDependencies": false,
+  "cordova_name": "InAppBrowser",
+  "deprecated": false,
+  "description": "Webview plugin",
+  "engines": [],
+  "keywords": [],
+  "license": "MIT",
+  "main": "www/webview-plugin.js",
+  "name": "com.mwaysolutions.cordova.webviewplugin",
+  "version": "1.0.0"
+}

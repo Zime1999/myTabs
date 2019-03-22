@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tweets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="background" scroll-events=true (ionScroll)="scrollTester($event)">
+  <img class="logo" src="assets/twitterlogo.png" />
+  <ion-grid>
+    <ion-row align-items: center>
+      <ion-col size="10">
+        <ion-searchbar [(ngModel)]="input" (keyup.enter)="checkOnEnter()" (ionBlur)="checkOnEnter()"
+          placeholder="#javascript"></ion-searchbar>
+      </ion-col>
+      <ion-col size="2" align-self-center>
+        <ion-button (click)="activateFilters()" class="optionsButton">
+          <ion-icon name="arrow-dropdown"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <div *ngIf=filtersActive>
+
+      <ion-row align-items: center>
+        <ion-col size="12">
+          <ion-item class="transparent">
+            <ion-label>Location</ion-label>
+            <ion-toggle [(ngModel)]="locationToggle" (ngModelChange)="checkToggle()"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item class="transparent">
+            <ion-label>sort by</ion-label>
+            <ion-select [(ngModel)]="sortValue" (ngModelChange)="sort()">
+              <ion-select-option value="author">Author</ion-select-option>
+              <ion-select-option value="date">Date</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+
+  <p *ngIf="missingData" [style.text-align]="'center'">No tweets found <br /><br /><img class="emoji"
+      src="assets/icon/sad_emoji.png" /></p>
+
+
+  <ion-card class="tile" *ngFor="let tweet of tweets" [style.margin-bottom]="'20px'">
+    <ion-item class="tile">
+      <ion-img class="iconCard" src={{tweet.avatarUrl}} slot="start"></ion-img>
+      <ion-label>{{tweet.user}}</ion-label>
+
+      <ion-icon [ngClass]="{'activeStar': tweet.isFavorite, 'inactiveStar': !tweet.isFavorite}"
+        (click)="pushToFavorites(tweet)" name="star"></ion-icon>
+
+    </ion-item>
+
+    <ion-card-content (click)="onSelect(tweet)" [routerDirection]="'forward'" [routerLink]="['/tabs/tab2/details']">
+      {{tweet.text}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-fab *ngIf="visibleTopScroll" (click)="scrollToTop()" vertical="bottom" horizontal="end">
+    <ion-fab-button class="scrollUp" size="small">
+      <ion-icon name="arrow-up"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="lines" loadingText="More tweets...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

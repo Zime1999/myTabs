@@ -1,0 +1,96 @@
+.logo {
+    width: 120px;
+    display: block;
+    margin: auto;
+}
+
+.iconCard {
+    padding-top: 5px;
+}
+
+.buttonStyle {
+    --background: #1dcaff;
+    width: 50px;
+}
+
+.optionsButton {
+    --background: #1dacff;
+}
+
+.background {
+    --background: #f9f9f9;
+}
+
+.transparent {
+    --background: rgba(0, 0, 0, 0);
+}
+
+.buttonGroup {
+    text-align: center;
+}
+
+ion-spinner {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+ }
+
+ .borderButton {
+     --border-color:  #1dcaff;
+     --color: grey;
+ }
+
+ .filledButton {
+    --background: #1dcaff;
+ }
+
+ ion-fab {
+     position: fixed;
+ }
+
+ ion-fab-button {
+     --background: grey;
+ }
+
+ .emoji {
+     width: 30px;
+ }
+
+ .activeStar {
+     color: orange;
+ }
+
+ .inactiveStar {
+     color: light-grey;
+ }
+
+ .tile {
+    animation: slide-down 0.6s ease;
+  }
+
+  .scrollUp {
+    animation: slide-up 0.6s ease;
+  }
+
+  @keyframes slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
